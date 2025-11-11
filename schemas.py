@@ -21,3 +21,13 @@ class UsuarioResponse(UsuarioBase):
 
     class Config:
         orm_mode = True
+        
+class RecetaResponse(BaseModel):
+    id: int
+    nombre: str
+    imagen_url: str
+    categoria: str | None
+    descripcion: str | None
+
+    class Config:
+        orm_mode = True
