@@ -1,6 +1,8 @@
 from fastapi import FastAPI
-from . import models, database, auth
-import auth, recetas 
+import models
+import database
+import auth
+import recetas 
 
 models.Base.metadata.create_all(bind=database.engine)
 

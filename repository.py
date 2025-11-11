@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from . import models
-from .security import hash_password, verify_password
+import models
+from security import hash_password, verify_password
 
 def crear_usuario(db: Session, nombre: str, correo: str, password: str, fecha_nacimiento=None, acepta_terminos=False):
     existente = db.query(models.Usuario).filter(models.Usuario.correo == correo).first()
