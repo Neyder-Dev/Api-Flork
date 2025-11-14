@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, Boolean, Text
 from database import Base
+from sqlalchemy.schema import ForeignKey
 
 class Usuario(Base):
     __tablename__ = "usuarios"
@@ -20,3 +21,11 @@ class Receta(Base):
     categoria = Column(String(50), nullable=True)    
     descripcion = Column(Text, nullable=True)
 
+class Favorito(Base):
+    __tablename__ = "favoritos"
+
+    id = Column(Integer, primary_key=True, index=True)
+    usuario_id = Column(Integer, ForeignKey("usuarios.id"), nullable=False)
+    receta_id = Column(Integer, ForeignKey("recetas.id"), nullable=False)
+    
+    
